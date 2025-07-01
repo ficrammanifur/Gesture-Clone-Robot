@@ -1,101 +1,99 @@
-🤖 Gesture Clone Robot
-Proyek ini adalah prototipe Gesture Clone Robot yang mampu meniru gerakan tangan manusia secara real-time menggunakan Mediapipe Hand Tracking (Python) dan ESP32 yang menggerakkan 5 buah servo motor.
-Dengan sistem ini, pengguna cukup menggerakkan tangan di depan kamera, dan tangan robot akan bergerak mengikuti secara langsung. Proyek ini dapat digunakan sebagai dasar penelitian bidang prostetik, teleoperasi robotik, maupun edukasi mekatronika.
+# 🤖 Gesture Clone Robot
 
-✨ Fitur
+Proyek ini adalah prototipe **Gesture Clone Robot** yang mampu meniru gerakan tangan manusia secara real-time menggunakan *Mediapipe Hand Tracking* (Python) dan **ESP32** yang menggerakkan 5 buah servo motor.
 
-Hand tracking real-time menggunakan Mediapipe.
-Kendali 5 servo motor untuk meniru pergerakan jari (ibu jari, telunjuk, jari tengah, manis, kelingking).
-Komunikasi Python ↔ ESP32 melalui MQTT.
-Sistem berbasis open source dan dapat dikembangkan lebih lanjut.
+Pengguna cukup menggerakkan tangan di depan kamera, dan tangan robot akan bergerak mengikuti secara langsung.  
+Proyek ini dapat menjadi dasar penelitian bidang prostetik, teleoperasi robotik, maupun edukasi mekatronika.
 
+---
 
-🧰 Teknologi yang Digunakan
+## ✨ Fitur
 
-Python: Untuk pemrosesan gambar dan deteksi tangan.
-Mediapipe: Untuk hand tracking dan deteksi landmark jari.
-ESP32: Mikrokontroler untuk mengendalikan servo motor.
-Servo Motor (SG90/MG90): Untuk simulasi gerakan jari.
-MQTT Broker (broker.emqx.io): Untuk komunikasi antara Python dan ESP32.
-Arduino IDE/PlatformIO: Untuk pemrograman ESP32.
-OpenCV: Untuk pengambilan dan pemrosesan gambar dari webcam.
+- ✅ Hand tracking real-time menggunakan Mediapipe.
+- ✅ Kendali 5 servo motor untuk meniru pergerakan jari (ibu jari, telunjuk, jari tengah, manis, kelingking).
+- ✅ Komunikasi Python ↔ ESP32 melalui MQTT.
+- ✅ Sistem berbasis open source dan mudah dikembangkan.
 
+---
 
-⚙️ Arsitektur Sistem
+## 🧰 Teknologi yang Digunakan
 
-Kamera menangkap pergerakan tangan.
-Python + Mediapipe memproses data status jari (terbuka/tertutup).
-Python mengirim data biner (misal: "11001") ke ESP32 via MQTT.
-ESP32 mengendalikan 5 servo motor berdasarkan data biner.
-Tangan robot bergerak sesuai status jari pengguna.
+- **Python** – Pemrosesan gambar dan deteksi tangan.
+- **Mediapipe** – Deteksi landmark jari.
+- **ESP32** – Mikrokontroler untuk mengendalikan servo motor.
+- **Servo Motor (SG90/MG90)** – Simulasi gerakan jari.
+- **MQTT Broker (broker.emqx.io)** – Komunikasi antara Python & ESP32.
+- **Arduino IDE / PlatformIO** – Pemrograman ESP32.
+- **OpenCV** – Pengambilan & pemrosesan gambar dari webcam.
 
+---
 
-🔗 Diagram Blok Hardware/Software
+## ⚙️ Arsitektur Sistem
+
+1️⃣ Kamera menangkap pergerakan tangan pengguna.  
+2️⃣ Python + Mediapipe memproses status jari (terbuka/tertutup).  
+3️⃣ Python mengirim data biner (contoh: `11001`) ke ESP32 via MQTT.  
+4️⃣ ESP32 menerima data dan menggerakkan 5 servo motor.  
+5️⃣ Tangan robot bergerak mengikuti status jari pengguna.
+
+---
+
+## 🔗 Diagram Blok Hardware / Software
+
+```text
 +----------------+       +----------------------+       +-----------------+
-|  Webcam        |       |  Python + Mediapipe  |       |  ESP32          |
-|  (Hand Input)  +-----> |  (Hand Tracking &    +-----> |  (Servo Control) |
+|    Webcam      | ----> | Python + Mediapipe   | ----> |      ESP32      |
+| (Hand Input)   |       | (Hand Tracking &     |       |  (Servo Control)|
 |                |       |   MQTT Publisher)    |       |                 |
 +----------------+       +----------------------+       +--------+--------+
-                                                        |
-                                                        |
-                        +-------------------------------+-------------------------------+
-                        |       |       |       |       |       |       |       |       |
-                        v       v       v       v       v       v       v       v       v
-                    +-------+-------+-------+-------+-------+-------+-------+-------+-------+
-                    | Servo | Servo | Servo | Servo | Servo | Servo | Servo | Servo | Servo |
-                    |  1    |  2    |  3    |  4    |  5    |  1    |  2    |  3    |  4    |
-                    | (Thumb)| (Index)| (Middle)| (Ring)| (Pinky)| (Thumb)| (Index)| (Middle)| (Ring)|
-                    +-------+-------+-------+-------+-------+-------+-------+-------+-------+
+                                                            |
+                                                            v
+                    +-------+-------+-------+-------+-------+
+                    | Servo | Servo | Servo | Servo | Servo |
+                    |  1    |  2    |  3    |  4    |  5    |
+                    |Thumb  |Index  |Middle | Ring  | Pinky |
+                    +-------+-------+-------+-------+-------+
+---
 
 Penjelasan:
 
-Webcam: Menangkap gambar tangan pengguna secara real-time.
-Python + Mediapipe: Memproses gambar untuk mendeteksi status jari (terbuka/tertutup) dan mengirim data biner melalui MQTT.
-ESP32: Menerima data biner via MQTT dan menggerakkan 5 servo motor untuk meniru gerakan jari.
+Webcam: Menangkap gerakan tangan secara real-time.
 
+Python + Mediapipe: Deteksi status jari & kirim data ke ESP32.
+
+ESP32: Menggerakkan servo sesuai status jari.
 
 📊 Flowchart Sistem
+
 graph TD
-    A[Start] --> B[Capture Hand Video<br>(Webcam)]
-    B --> C[Detect Landmarks<br>(Mediapipe)]
-    C --> D[Process Finger States<br>(Open/Closed)]
-    D --> E[Send Binary Data<br>(MQTT to ESP32)]
-    E --> F[Move Servos<br>(ESP32)]
+    A[Start] --> B[Capture Hand Video (Webcam)]
+    B --> C[Detect Landmarks (Mediapipe)]
+    C --> D[Process Finger States (Open/Closed)]
+    D --> E[Send Binary Data (MQTT to ESP32)]
+    E --> F[Move Servos (ESP32)]
     F --> G{Repeat?}
-    G -->|Yes| B
-    G -->|No| H[End]
-
-Penjelasan:
-
-Flowchart dibuat lebih sederhana dengan label yang jelas dan deskriptif.
-Setiap langkah diberi keterangan singkat untuk memudahkan pemahaman.
-Struktur alur menunjukkan proses berulang hingga pengguna menghentikan program.
-
+    G -- Yes --> B
+    G -- No --> H[End]
 
 🚀 Cara Menjalankan
-
-Install dependency Python:
+1️⃣ Install dependency Python
 pip install opencv-python mediapipe paho-mqtt
-
-
-Upload kode ESP32:
-
+2️⃣ Upload kode ke ESP32
 Buka file gesture_clone_robot.ino di Arduino IDE atau PlatformIO.
+
 Pastikan library WiFi, PubSubClient, dan ESP32Servo sudah terinstall.
-Sesuaikan ssid, password, dan mqttServer di kode Arduino.
+
+Sesuaikan variabel ssid, password, dan mqttServer sesuai jaringan Anda.
+
 Upload kode ke ESP32.
-
-
-Jalankan program Python:
+3️⃣ Jalankan program Python
 python main.py
-
-
-Gerakkan tangan di depan webcam, dan servo akan mengikuti gerakan jari Anda.
-
-
+4️⃣ Uji coba
+Gerakkan tangan di depan webcam → servo akan mengikuti gerakan jari Anda.
 
 🙌 Kontribusi
-Pull request dan ide pengembangan sangat diterima! Silakan buka Issue untuk diskusi, saran, atau pelaporan bug.
+Pull request, ide pengembangan, dan diskusi sangat diterima!
+Silakan buka Issue untuk pertanyaan, saran, atau pelaporan bug.
 
 📦 Flowchart Sistem (Format JSON)
 {
@@ -120,3 +118,6 @@ Pull request dan ide pengembangan sangat diterima! Silakan buka Issue untuk disk
     {"from": "loop", "to": "end", "label": "No"}
   ]
 }
+
+⚡ Built with Python, Mediapipe & ESP32
+⭐ Star this repo if you like it!
