@@ -1,7 +1,7 @@
 <h1 align="center">🖐️ Gesture Clone Robot</h1>
 
 <p align="center">
-  <img src="prototype.png" alt="Prototype Gesture Clone Robot" width="500"/>
+  <img src="prototype.png" alt="Prototype Gesture Clone Robot" width="900"/>
 </p>
 <p align="center">Prototipe robot yang meniru gerakan tangan manusia secara real-time menggunakan Mediapipe dan ESP32</p>
 
