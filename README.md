@@ -86,7 +86,7 @@ ESP32: Menggerakkan servo sesuai status jari.
 
 ### 📊 Flowchart Sistem
 
-```mermaid
+```
 graph TD
     A[Start] --> B[Capture Hand Video (Webcam)]
     B --> C[Detect Landmarks (Mediapipe)]
@@ -97,9 +97,10 @@ graph TD
     G -- Yes --> B
     G -- No --> H[End]
 ```
+
 ---
 
-🚀 Cara Menjalankan
+## 🚀 Cara Menjalankan
 1. Persiapan Perangkat Keras
 Hubungkan 5 Servo Motor ke pin ESP32 (contoh: pin 12, 13, 14, 15, 16).
 
@@ -138,7 +139,7 @@ gesture/robot/control (atau sesuaikan)
 ```
 
 ---
-. Pengujian
+## Pengujian
 Hand Tracking: Gerakkan tangan di depan webcam, Mediapipe mendeteksi posisi jari.
 
 Kontrol Servo: ESP32 menerima data biner (misalnya: 11001) lalu menggerakkan servo.
@@ -151,7 +152,7 @@ ESP32 subscribe ke topik yang sama.
 
 ---
 
-🔧 Konfigurasi
+## 🔧 Konfigurasi
 MQTT Broker
 Host: broker.emqx.io
 
@@ -174,9 +175,7 @@ PubSubClient
 ESP32Servo
 
 ---
-ESP32Servo
-
-📊 Monitoring
+## 📊 Monitoring
 Python Console
 Contoh output:
 
@@ -190,7 +189,7 @@ Gunakan baud rate 115200:
 [INFO] Data diterima: 11001
 [INFO] Servo diatur: Jari 1=180°, Jari 2=0°, ...
 ```
-🐞 Debugging
+## 🐞 Debugging
 Hand Tracking Gagal
 Periksa webcam dan pencahayaan.
 
@@ -215,7 +214,7 @@ Tes MQTT dengan tool:
 mosquitto_sub -h broker.emqx.io -t gesture/robot/control
 ```
 
-⚠️ Catatan Penting
+## ⚠️ Catatan Penting
 Gunakan pencahayaan yang cukup untuk akurasi deteksi tangan.
 
 Gunakan power supply eksternal untuk servo jika ESP32 tidak cukup kuat.
@@ -223,7 +222,7 @@ Gunakan power supply eksternal untuk servo jika ESP32 tidak cukup kuat.
 Pastikan port MQTT (1883) tidak diblokir jaringan.
 
 ---
-🙌 Kontribusi
+## 🙌 Kontribusi
 Pull request, ide pengembangan, dan diskusi sangat diterima!
 Silakan buka Issue untuk pertanyaan, saran, atau pelaporan bug.
 
