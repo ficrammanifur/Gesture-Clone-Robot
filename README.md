@@ -8,6 +8,9 @@
   <img src="https://img.shields.io/badge/platform-ESP32%20%7C%20PC-informational" />
   <img src="https://img.shields.io/badge/protocol-MQTT-green" />
   <img src="https://img.shields.io/badge/hand_tracking-Mediapipe-orange" />
+  <a href="https://github.com/ficrammanifur/ficrammanifur/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT" />
+  </a>
 </p>
 
 ---
