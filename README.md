@@ -110,6 +110,12 @@ graph TD
 - Pastikan webcam terhubung ke komputer.
 - Sambungkan ESP32 ke daya dan pastikan terhubung ke WiFi.
 
+### Wiring Diagram 
+<p align="center">
+  <img src="wiring_diagram.png" width="500"/>
+</p>
+<p align="center">Sesuaian dengan kode pemograman pada ESP32</p>
+
 ### 2. Konfigurasi Perangkat Lunak
 
 #### Python
