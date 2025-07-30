@@ -1,9 +1,9 @@
 <h1 align="center">🖐️ Gesture Clone Robot</h1>
-<p align="center">Prototipe robot yang meniru gerakan tangan manusia secara real-time menggunakan Mediapipe dan ESP32</p>
 
 <p align="center">
   <img src="prototype.png" alt="Prototype Gesture Clone Robot" width="500"/>
 </p>
+<p align="center">Prototipe robot yang meniru gerakan tangan manusia secara real-time menggunakan Mediapipe dan ESP32</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/last%20commit-today-brightgreen" />
