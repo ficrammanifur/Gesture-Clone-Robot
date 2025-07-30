@@ -1,7 +1,4 @@
-<h1 align="center">
-  <img src="https://media.tenor.com/JfwaFif2rnsAAAAi/hand-closing.gif" width="30px" alt="open-close hand" /> 
-  Gesture Clone Robot
-</h1>
+<h1 align="center"> <img src="https://media.tenor.com/JfwaFif2rnsAAAAi/hand-closing.gif" width="30px" alt="open-close hand" /> Gesture Clone Robot </h1> <p
 
 <p align="center">Prototipe robot yang meniru gerakan tangan manusia secara real-time menggunakan Mediapipe dan ESP32</p>
 
