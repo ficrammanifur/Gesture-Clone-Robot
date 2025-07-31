@@ -106,7 +106,7 @@
 
 ```mermaid
 graph TD
-    A[Start] --> B[Capture Hand Video - Webcam]
+    A(Start) --> B[Capture Hand Video - Webcam]
     B --> C[Detect Landmarks - Mediapipe]
     C --> D[Process Finger States - Open/Closed]
     D --> E[Send Binary Data - MQTT to ESP32]
