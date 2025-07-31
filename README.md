@@ -659,6 +659,6 @@ SOFTWARE.
 
 **⭐ Star this repo if you like it!**
 
-<p><a href="#top">⬆ Kembali ke Atas</a></p>
+<p><a href="#top">⬆ Back on Top</a></p>
 
 </div>
