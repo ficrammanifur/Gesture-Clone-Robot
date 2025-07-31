@@ -116,9 +116,9 @@ graph TD
     G -->|No| H[End]
     
     style A fill:#e1f5fe
-    style C fill:#f3e5f5
-    style E fill:#e8f5e8
-    style F fill:#fff3e0
+    style C fill:#e1f5fe
+    style E fill:#e1f5fe
+    style F fill:#e1f5fe
 ```
 
 ---
