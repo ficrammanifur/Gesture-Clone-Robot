@@ -114,7 +114,7 @@ graph TD
 <p align="center">
   <img src="wiring_diagram.png" width="500"/>
 </p>
-<p align="center">Sesuaian dengan kode pemograman pada ESP32</p>
+<p align="center">Sesuaikan dengan kode pemograman pada ESP32</p>
 
 ### 2. Konfigurasi Perangkat Lunak
 
