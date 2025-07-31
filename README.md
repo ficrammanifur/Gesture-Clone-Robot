@@ -248,5 +248,4 @@ Silakan buka Issue untuk pertanyaan, saran, atau pelaporan bug.
 **⭐ Star this repo if you like it!**
 
 <p><a href="#top">⬆ Kembali ke Atas</a></p>
-
 </div>
